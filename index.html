@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Carrito de compras</title>
+</head>
+<body>
+    <header>
+        <!-- <img src="" alt=""> -->
+        <h1>dotClass - Catálogo de compra de cursos</h1>
+        <hr>
+    </header>
+    <div class="container">
+        <div class="row">
+            <!-- Elementos generados a partir del JSON -->
+            <main id="items" class="col-sm-8 row"></main>
+            <!-- Carrito -->
+            <aside class="col-sm-4">
+                <h2>Carrito</h2>
+                <!-- Elementos del carrito -->
+                <ul id="carrito" class="list-group"></ul>
+                <hr>
+                <!-- Precio total -->
+                <p class="text-right">Total: <span id="total"></span></p>
+            </aside>
+            
+        </div>
+        <div class="form-group">
+            <label for="txtnombre">Nombres y apellidos:</label>
+            <input type="text" id="txtnombre" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="txtemail">Correo:</label>
+            <input type="email" id="txtemail" class="form-control">
+        </div>
+        <div class="form-group mt-2">
+            <a href="" class="btn btn-primary" id="btnregistrar" onclick="mostrarAviso()"> Enviar compra</a>
+        </div>
+        <div class="form-group mt-2">
+                <a href="" class="btn btn-primary" id="btnregistrar" onclick="nuevaCompra()"> Nueva compra</a>
+        </div>
+    </div>
+</body>
+</html>
