@@ -1,7 +1,9 @@
 h1{
     text-align: center;
     color: white;
-    padding-top: 20px;
+    display: inline;
+    vertical-align: middle;
+    
 }
 .container{
     padding-top: 20px;
@@ -11,14 +13,21 @@ h1{
 }
 header{
     background:rgb(35, 68, 39);
+    height: 110px;
+    padding-top: 10px;
 }
-
+header img{
+    width: 100px;
+    height: 100px;
+    margin-left: 180px;
+    
+}
 
 body, html {
     height: 100%;
     margin: 0;
     padding: 0;
-    /* background: goldenrod; */
+    
 }
 .mt-2{
     text-align: right;
