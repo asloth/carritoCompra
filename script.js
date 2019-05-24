@@ -4,37 +4,37 @@ window.onload = function () {
         {
             id: 1,
             nombre: 'Frontend',
-            foto: 'https://pbs.twimg.com/media/DAkzwVJXYAAkl8D.jpg',
+            foto: 'https://drupal.ed.team/sites/default/files/imagenes-cdn-edteam/2019-03/Redes%20Enrutammiento.png',
             precio: 150
         },
         {
             id: 2,
             nombre: 'Backend',
-            foto: 'https://i.mdel.net/i/db/2018/10/999524/999524-500w.jpg',
+            foto: 'https://drupal.ed.team/sites/default/files/styles/medium/public/imagenes-cdn-edteam/2019-01/Android%20Material%20Design.png?itok=cuUacCaR',
             precio: 70
         },
         {
             id: 3,
-            nombre: 'Fundamentos de Java',
-            foto: 'https://i.mdel.net/i/db/2019/3/1082532/1082532-500w.jpg',
+            nombre: 'Dart',
+            foto: 'https://drupal.ed.team/sites/default/files/styles/medium/public/imagenes-cdn-edteam/2018-12/Dart.png?itok=Ul2YVOuq',
             precio: 25
         },
         {
             id: 4,
-            nombre: 'Master en Phyton',
-            foto: 'https://em.wattpad.com/3a85d3ae5dbd443af93cf63f4a8f35b6d9d91603/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f7279496d6167652f6f38576136576b4571325a6f43773d3d2d3532363437303832332e313530643339343432343731383765613539363236343634313237392e6a7067?s=fit&w=720&h=720',
+            nombre: 'Flutter',
+            foto: 'https://drupal.ed.team/sites/default/files/styles/medium/public/imagenes-cdn-edteam/2018-12/Flutter.png?itok=MpF412ML',
             precio: 30
         },
         {
             id: 5,
-            nombre: 'Fundamentos de Cloud Computing',
-            foto: 'https://uustuus.ee/wp-content/uploads/2017/02/pasha-harulia7.jpg',
+            nombre: 'DW en Java',
+            foto: 'https://drupal.ed.team/sites/default/files/styles/medium/public/courses/images/java-web.jpg',
             precio: 30
         },
         {
             id: 6,
-            nombre: 'La integral y sus aplicaciones',
-            foto: 'https://pbs.twimg.com/media/DAkzwVJXYAAkl8D.jpg',
+            nombre: 'React JS',
+            foto: 'https://drupal.ed.team/sites/default/files/imagenes-cdn-edteam/2019-04/React%20Rutas%20manejo%20de%20estados%20%281%29.png',
             precio: 15
         }
     ]
