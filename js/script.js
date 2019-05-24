@@ -122,7 +122,7 @@ window.onload = function () {
             $carrito.appendChild(miNodo);
             
             
-        })
+        });
        
     }
     
