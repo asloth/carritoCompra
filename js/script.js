@@ -87,6 +87,7 @@ window.onload = function () {
     
     function agregarCarrito () {
         // Anyadimos el Nodo a nuestro carrito
+        
         carrito.push(this.getAttribute('marcador'));
         //Añadimos al localStorage
         localStorage.setItem( 'producto', JSON.stringify(carrito));
@@ -109,8 +110,9 @@ window.onload = function () {
             });
             // Creamos el nodo del item del carrito
             let miNodo = document.createElement('li');
-            miNodo.classList.add('list-group-item', 'text-left', 'd-flex','nod');
-            miNodo.textContent = `${miItem[0]['nombre']} -S/. ${miItem[0]['precio']}`;
+            miNodo.classList.add('list-group-item', 'text-left', 'd-flex');
+            miNodo.classList.add('nod');
+            miNodo.textContent = `${miItem[0]['nombre']} -S/.${miItem[0]['precio']}`;
             // Boton de borrar
             let miBoton = document.createElement('button');
             miBoton.classList.add('btn', 'btn-outline-danger', 'ml-auto');
@@ -195,7 +197,6 @@ window.onload = function () {
     
     // Inicio
     listarItems();  
-    mostrarCarrito ();
     calcularTotal ();
     
 } 
