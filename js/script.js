@@ -51,6 +51,7 @@ window.onload = function () {
             // Estructura
             let miNodo = document.createElement('div');
             miNodo.classList.add('card', 'col-sm-4');
+            miNodo.classList.add('nod');
             // Body
             let miNodoCardBody = document.createElement('div');
             miNodoCardBody.classList.add('card-body');
@@ -108,7 +109,7 @@ window.onload = function () {
             });
             // Creamos el nodo del item del carrito
             let miNodo = document.createElement('li');
-            miNodo.classList.add('list-group-item', 'text-left', 'd-flex');
+            miNodo.classList.add('list-group-item', 'text-left', 'd-flex','nod');
             miNodo.textContent = `${miItem[0]['nombre']} -S/. ${miItem[0]['precio']}`;
             // Boton de borrar
             let miBoton = document.createElement('button');

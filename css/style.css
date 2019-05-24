@@ -1,5 +1,4 @@
 h1{
-    text-align: center;
     color: white;
     display: inline;
     vertical-align: middle;
@@ -8,18 +7,23 @@ h1{
 .container{
     padding-top: 20px;
     height: 100%;
-    margin-left: 150px;
     
 }
+
+.nod, body{
+    background: #DADADA;
+}
 header{
-    background:rgb(35, 68, 39);
+    background:#004D40;
     height: 110px;
-    padding-top: 10px;
+    padding-top: 20px;
 }
 header img{
-    width: 100px;
-    height: 100px;
-    margin-left: 180px;
+    width: 70px;
+    height: 70px;
+    margin-left: 350px;
+    background-color: white;
+    border-radius: 70%;
     
 }
 
@@ -27,7 +31,7 @@ body, html {
     height: 100%;
     margin: 0;
     padding: 0;
-    
+     
 }
 .mt-2{
     text-align: right;
