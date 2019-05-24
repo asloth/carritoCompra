@@ -155,6 +155,7 @@ window.onload = function () {
     // Eventos
     let btnNuevaCompra = document.getElementById('btnreiniciar');
     btnNuevaCompra.onclick = function reiniciarCarrito(){
+        //Borramos los datos
         carrito.splice(0);
         //Actualizamos el storage
         localStorage.setItem( 'producto', JSON.stringify(carrito) );
@@ -164,12 +165,20 @@ window.onload = function () {
         calcularTotal();
         
     }
+
     let btnEnviarMensaje = document.getElementById('btnavisar');
     btnEnviarMensaje.onclick = function mostrarAviso(){
         let nombre = document.getElementById('txtnombre').value;
         let email = document.getElementById('txtemail').value;
         alert( 'Su compra ha sido registrada' + ' NOMBRE: '+ nombre + ' CORREO: ' + email + ' TOTAL DE LA COMPRA: ' + total.toFixed(2));
-        reiniciarCarrito();
+        //Borramos los datos
+        carrito.splice(0);
+        //Actualizamos el storage
+        localStorage.setItem( 'producto', JSON.stringify(carrito) );
+        // volvemos a renderizar
+        renderizarCarrito();
+        // Calculamos de nuevo el precio
+        calcularTotal();
     
     }
     
