@@ -84,12 +84,12 @@ window.onload = function () {
             $$items.appendChild(miNodo);
         }
     }
+    
     function agregarCarrito () {
         // Anyadimos el Nodo a nuestro carrito
         carrito.push(this.getAttribute('marcador'));
-        
         //Añadimos al localStorage
-        localStorage.setItem( 'producto',JSON.stringify(carrito));
+        localStorage.setItem( 'producto', JSON.stringify(carrito));
         // Calculo el total
         calcularTotal();
         // Renderizamos el carrito 
@@ -123,7 +123,7 @@ window.onload = function () {
             
             
         })
-            
+       
     }
     
     function borrarItemCarrito () {
@@ -181,7 +181,6 @@ window.onload = function () {
         //mandamos el mensaje solicitado
         alert( 'Su compra ha sido registrada' + ' NOMBRE: '+ nombre + ' CORREO: ' + email + ' TOTAL DE LA COMPRA: ' + total.toFixed(2));
         //reiniciar carrito
-        
         carrito.splice(0);
         //Actualizamos el storage
         localStorage.setItem( 'producto', JSON.stringify(carrito));
