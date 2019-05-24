@@ -46,7 +46,7 @@ window.onload = function () {
     let $total = document.querySelector('#total');
     
     // Funciones
-    function renderItems () {
+    function listarItems () {
         for (let info of baseDeDatos) {
             // Estructura
             let miNodo = document.createElement('div');
@@ -70,7 +70,7 @@ window.onload = function () {
             miNodoPrecio.textContent = 'S/.' + info['precio'] ;
             // Boton 
             let miNodoBoton = document.createElement('button');
-            miNodoBoton.classList.add('btn', 'btn-primary');
+            miNodoBoton.classList.add('btn', 'btn-outline-success');
             miNodoBoton.textContent = 'Agregar al carrito';
             miNodoBoton.setAttribute('marcador', info['id']);
             miNodoBoton.addEventListener('click', agregarCarrito);
@@ -85,17 +85,18 @@ window.onload = function () {
     }
     function agregarCarrito () {
         // Anyadimos el Nodo a nuestro carrito
-        carrito.push(this.getAttribute('marcador'))
+        carrito.push(this.getAttribute('marcador'));
+        
         //Añadimos al localStorage
         localStorage.setItem( 'producto',JSON.stringify(carrito));
         // Calculo el total
         calcularTotal();
         // Renderizamos el carrito 
-        renderizarCarrito();
+        mostrarCarrito();
 
     }
 
-    function renderizarCarrito () {
+    function mostrarCarrito () {
         // Vaciamos todo el html
         $carrito.textContent = '';
         // Generamos los Nodos a partir de carrito
@@ -107,18 +108,21 @@ window.onload = function () {
             });
             // Creamos el nodo del item del carrito
             let miNodo = document.createElement('li');
-            miNodo.classList.add('list-group-item', 'text-left');
+            miNodo.classList.add('list-group-item', 'text-left', 'd-flex');
             miNodo.textContent = `${miItem[0]['nombre']} -S/. ${miItem[0]['precio']}`;
             // Boton de borrar
             let miBoton = document.createElement('button');
-            miBoton.classList.add('btn', 'btn-danger');
+            miBoton.classList.add('btn', 'btn-outline-danger', 'ml-auto');
             miBoton.textContent = 'Eliminar producto';
             miBoton.setAttribute('posicion', indice);
             miBoton.addEventListener('click', borrarItemCarrito);
             // Mezclamos nodos
             miNodo.appendChild(miBoton);
             $carrito.appendChild(miNodo);
+            
+            
         })
+            
     }
     
     function borrarItemCarrito () {
@@ -129,7 +133,7 @@ window.onload = function () {
         //Actualizamos la informacion en el localstorage
         localStorage.setItem( 'producto', JSON.stringify(carrito) );
         // volvemos a renderizar
-        renderizarCarrito();
+        mostrarCarrito();
         // Calculamos de nuevo el precio
         calcularTotal();
     }
@@ -138,10 +142,10 @@ window.onload = function () {
         // Limpiamos precio anterior
         total = 0;
         // Recorremos el array del carrito
-        for (let item of carrito) {
+        for (let etiqueta of carrito) {
             // De cada elemento obtenemos su precio
             let miItem = baseDeDatos.filter(function(itemBaseDatos) {
-                return itemBaseDatos['id'] == item;
+                return itemBaseDatos['id'] == etiqueta;
             });
             total = total + miItem[0]['precio'];
         }
@@ -152,40 +156,49 @@ window.onload = function () {
     
     }
 
-    // Eventos
-    let btnNuevaCompra = document.getElementById('btnreiniciar');
-    btnNuevaCompra.onclick =  reiniciarCarrito();
     
-    function reiniciarCarrito(){
+    
+    // Eventos
+    let btnReiniciar = document.getElementById('btnReiniciar');
+    btnReiniciar.onclick = function reiniciarCarrito(){
         //Borramos los datos
         carrito.splice(0);
         //Actualizamos el storage
-        localStorage.setItem( 'producto', JSON.stringify(carrito) );
+        localStorage.setItem( 'producto', JSON.stringify(carrito));
         // volvemos a renderizar
-        renderizarCarrito();
+        mostrarCarrito();
         // Calculamos de nuevo el precio
         calcularTotal();
         
     }
 
-    let btnEnviarMensaje = document.getElementById('btnavisar');
-    btnEnviarMensaje.onclick = function mostrarAviso(){
+    let btnAvisar = document.getElementById('btnAvisar');
+    btnAvisar.onclick = function mostrarAviso(){
         //Obtenemos los datos del usuario
         let nombre = document.getElementById('txtnombre').value;
         let email = document.getElementById('txtemail').value;
         //mandamos el mensaje solicitado
         alert( 'Su compra ha sido registrada' + ' NOMBRE: '+ nombre + ' CORREO: ' + email + ' TOTAL DE LA COMPRA: ' + total.toFixed(2));
         //reiniciar carrito
-        reiniciarCarrito();
+        
+        carrito.splice(0);
+        //Actualizamos el storage
+        localStorage.setItem( 'producto', JSON.stringify(carrito));
+        // volvemos a renderizar
+        mostrarCarrito();
+        // Calculamos de nuevo el precio
+        calcularTotal();
     
-    }
+    } 
+    
     
     
     // Inicio
-    renderItems();  
-    renderizarCarrito ();
+    listarItems();  
+    mostrarCarrito ();
     calcularTotal ();
     
 } 
+
 
 

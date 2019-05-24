@@ -12,7 +12,7 @@
 <body>
     <header>
         <!-- <img src="https://cdn.shortpixel.ai/client/q_glossy,ret_img/https://www.gjpepsi.com/~gjpepsic/wp-content/uploads/2015/03/gjpepsi_employees-01.png" alt=""> -->
-        <h1>dotClass - Catálogo de compra de cursos</h1>
+        <h1 class="display-4">dotClass - Catálogo de compra de cursos</h1>
         <hr>
     </header>
     <div class="container">
@@ -23,28 +23,33 @@
             <aside class="col-sm-4">
                 <h2>Carrito de compras</h2>
                 <!-- Elementos del carrito -->
-                <ul id="carrito" class="list-group"></ul>
+                <ul id="carrito" class="list-group"></ul>  
+
                 <hr>
                 <!-- Precio total -->
                 <p class="text-right">Total: <span id="total"></span></p>
             </aside>
         </div>
+        <div class="form-group mt-2">
+            <a href="" class="btn btn-primary" id="btnReiniciar"  > Nueva compra</a>
+        </div>
         <hr>
-        <h2>Enviar su compra</h2>
-        <div class="form-group">
-            <label for="txtnombre">Nombres y apellidos:</label>
-            <input type="text" id="txtnombre" class="form-control">
+        <div class="foot">
+                <div class="form-group" >
+                        <h2>Enviar su compra</h2>
+                        <label for="txtnombre">Nombres y apellidos:</label>
+                        <input type="text" id="txtnombre" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtemail">Correo:</label>
+                        <input type="email" id="txtemail" class="form-control">
+                    </div>
+                    <div class="form-group mt-2">
+                        <a href="" class="btn btn-primary" id="btnAvisar" > Enviar compra</a>
+                </div>
         </div>
-        <div class="form-group">
-            <label for="txtemail">Correo:</label>
-            <input type="email" id="txtemail" class="form-control">
-        </div>
-        <div class="form-group mt-2">
-            <a href="" class="btn btn-primary" id="btnavisar" onclick='mostrarAviso()'> Enviar compra</a>
-        </div>
-        <div class="form-group mt-2">
-                <a href="" class="btn btn-primary" id="btnreiniciar" > Nueva compra</a>
-        </div>
+        
+        
         
     </div>
     <script src="script.js"></script>
