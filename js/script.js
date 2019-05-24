@@ -196,7 +196,10 @@ window.onload = function () {
     
     
     // Inicio
-    listarItems();  
+    listarItems();
+    if( carrito!=null )  {
+        mostrarCarrito();
+    }
     calcularTotal ();
     
 } 
