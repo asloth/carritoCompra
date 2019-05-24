@@ -40,11 +40,8 @@ window.onload = function () {
     ]
     
     let $$items = document.querySelector('#items');
-    
     let carrito = [];
-    
     let total = 0;
-    
     let $carrito = document.querySelector('#carrito');
     let $total = document.querySelector('#total');
     
@@ -74,7 +71,7 @@ window.onload = function () {
             // Boton 
             let miNodoBoton = document.createElement('button');
             miNodoBoton.classList.add('btn', 'btn-primary');
-            miNodoBoton.textContent = '+';
+            miNodoBoton.textContent = 'Agregar al carrito';
             miNodoBoton.setAttribute('marcador', info['id']);
             miNodoBoton.addEventListener('click', agregarCarrito);
             // Insertamos
@@ -87,11 +84,10 @@ window.onload = function () {
         }
     }
     function agregarCarrito () {
-        //Añadimos al localStorage
-        localStorage.setItem( 'indice',this.getAttribute('marcador') );
         // Anyadimos el Nodo a nuestro carrito
-        // carrito.push()
-
+        carrito.push(this.getAttribute('marcador'))
+        //Añadimos al localStorage
+        localStorage.setItem( 'producto',JSON.stringify(carrito));
         // Calculo el total
         calcularTotal();
         // Renderizamos el carrito 
@@ -103,7 +99,7 @@ window.onload = function () {
         // Vaciamos todo el html
         $carrito.textContent = '';
         // Generamos los Nodos a partir de carrito
-        carrito=localStorage.getItem('indice');
+        carrito=JSON.parse(localStorage.getItem('producto'));
         carrito.forEach(function (item, indice) {
             // Obtenemos el item que necesitamos de la variable base de datos
             let miItem = baseDeDatos.filter(function(itemBaseDatos) {
@@ -130,6 +126,8 @@ window.onload = function () {
         let posicion = this.getAttribute('posicion');
         // Borramos la posicion que nos interesa
         carrito.splice(posicion, 1);
+        //Actualizamos la informacion en el localstorage
+        localStorage.setItem( 'producto', JSON.stringify(carrito) );
         // volvemos a renderizar
         renderizarCarrito();
         // Calculamos de nuevo el precio
@@ -151,26 +149,36 @@ window.onload = function () {
         let totalDosDecimales = total.toFixed(2);
         // Renderizamos el precio en el HTML
         $total.textContent = totalDosDecimales;
-        totalAviso = totalDosDecimales;
+    
+    }
+
+    // Eventos
+    let btnNuevaCompra = document.getElementById('btnreiniciar');
+    btnNuevaCompra.onclick = function reiniciarCarrito(){
+        carrito.splice(0);
+        //Actualizamos el storage
+        localStorage.setItem( 'producto', JSON.stringify(carrito) );
+        // volvemos a renderizar
+        renderizarCarrito();
+        // Calculamos de nuevo el precio
+        calcularTotal();
         
+    }
+    let btnEnviarMensaje = document.getElementById('btnavisar');
+    btnEnviarMensaje.onclick = function mostrarAviso(){
+        let nombre = document.getElementById('txtnombre').value;
+        let email = document.getElementById('txtemail').value;
+        alert( 'Su compra ha sido registrada' + ' NOMBRE: '+ nombre + ' CORREO: ' + email + ' TOTAL DE LA COMPRA: ' + total.toFixed(2));
+        reiniciarCarrito();
     
     }
     
     
-    
-    // Eventos
-    
     // Inicio
     renderItems();  
-    
+    renderizarCarrito ();
+    calcularTotal ();
     
 } 
 
-function mostrarAviso(){
-    var nombre = document.getElementById('txtnombre').value;
-    var email = document.getElementById('txtemail').value;
-    alert( 'Su compra ha sido registrada' + ' Nombre: '+ nombre + ' Correo: ' + email);
-}
-function nuevaCompra(){
-    alert( 'Se borrarán los datos');
-}
+

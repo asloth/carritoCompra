@@ -5,6 +5,9 @@ h1{
 }
 .container{
     padding-top: 20px;
+    height: 100%;
+    margin-left: 150px;
+    /* padding: 0; */
 }
 header img {
     padding-top: 10px;
@@ -14,7 +17,8 @@ header img {
     
 }
 
-body, html{
+
+body, html {
     height: 100%;
     margin: 0;
     padding: 0;
